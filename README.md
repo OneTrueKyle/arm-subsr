@@ -10,12 +10,14 @@ Funkcijos veikimui būtini 4 argumentai su prielaidomis:
 4. Simbolių eilutės pradžios adresas į kurią bus kopijuojami duomenys (toliau dst). Daroma prielaida, kad simbolių eilutės duomenų talpa baitais yra bent 'n + 1', tam kad galima būtų sutalpinti duomenis ir simbolių eilutės pabaigos žėnklą
     Funkcija negražina jokių argumentų, tačiau tikimasi, kad bus šalutinis efektas: dts bus nukopijuoti nurodyti baitai iš src
 
-### Algoritmo viekimas
+### Bendras algoritmo viekimas
 1. Prie src pridedamas s, taip gaunamas adresas į pirmajį baitą, kurį reikia kopijuoti į dst
 2. Baitas esantis atmintyje adresu src kopijuojamas į atmintį adresu dst
 3. Prie dst pridedamas vienetas, prie src pridedamas vienetas, iš n atimamas vienetas
 4. Jeigu n yra nėra nulis, vykdoma nuo 2 punkto
 5. Algoritmas baigtas
+
+##### *Pastaba: konkreti implementacija* `program.s` *byloje*
 
 # Instaliacija ir paleidimas
 
@@ -49,8 +51,16 @@ Emuliacjios nustatymai gali būti keičiami modifikuojant `run.py` bylą. Paleid
 
 # Veikimo efektyvumas
 
-Programa naudoja minimalų atminties kiekį išsaugant visas registrų vertes. Programa gali būti optimizuojama atliekant papildomą patikrą: Žiūrint ar kopijuojamoje simbolių eilutėje nėra simbolių eilutės baigties simbolio, tačiau tai prideda papildomą tikrinimą kiekvienam baitui, o pagerintų efektyvumą tik kai pradinė simbolių eilutė yra ženkliai trumpesnė nei pareikalauta skaityti. Kitas optimizavimas galėtų būti naudojant LDM instrukciją: instrukcija leidžia užkrauti duomenis į kelis registrus viena instrukcija iš nuoseklios atminties. Ši optimizacija didina algoritmo sudėtingumą.
+Programa naudoja minimalų atminties kiekį išsaugant visas registrų vertes. 
 
+Programa gali būti optimizuojama atliekant papildomą patikrą: Žiūrint ar kopijuojamoje simbolių eilutėje nėra simbolių eilutės baigties simbolio, tačiau tai prideda papildomą tikrinimą kiekvienam baitui, o pagerintų efektyvumą tik kai pradinė simbolių eilutė yra ženkliai trumpesnė nei pareikalauta skaityti. 
+
+Kitas optimizavimas galėtų būti naudojant LDM instrukciją: instrukcija leidžia užkrauti duomenis į kelis registrus viena instrukcija iš nuoseklios atminties. Ši optimizacija didina algoritmo sudėtingumą. **(įgyvendintas)**
+
+
+# Emuliacijos našumas
+
+Algoritmo našumo lygis emuliatoriuje yra panašus į realioje mašinoje, nes ARM architektūros kompiutriai prilygsta (arba pranoksta "Apple silicon" atveju) daugumai modernių x86 procesorių. Gyvai patikrinti negalėjau, tačiau turint omenyje kad vykdoma JIT kompiliacija, galima nuspėti jog pirmo paleidimo metu būtų pastebimas sulėtėjimas, tačiau kartojant algoritmą vykdymo laiko skirtumas labiausiai priklausytų nuo konkrečių procesorių ir jų atminties greičio.
 
 #  Šaltiniai
 
