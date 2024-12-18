@@ -1,3 +1,5 @@
+Nuoroda į repozitoriją: https://github.com/OneTrueKyle/arm-subsr
+
 # Įvadas
 ### Funckija
     Substr: algoritmo tikslas yra iš nudrodytos simbolių eilutės nukopijuotį nurodytą dalį simbolių į kitą nurodytą simbolių eilutę. 
@@ -65,10 +67,7 @@ Algoritmo našumo lygis emuliatoriuje yra panašus į realioje mašinoje, nes AR
 #  Šaltiniai
 
 1. Wikipedia contributors. (2023, December 21). Substring. In Wikipedia, The Free Encyclopedia. Retrieved 18:33, December 18, 2024, from https://en.wikipedia.org/w/index.php?title=Substring&oldid=1190994581
-<!-- todo format -->
-https://developer.arm.com/documentation/ddi0403/ee/?lang=en
-https://documentation-service.arm.com/static/6245c734b059dc5ff9a8bdab
-GNU ARM
-Unicorn engine
-Unicorn engine python binding (docs)
-
+2. Arm Limited. (2021, February 15). Arm® v7-M Architecture Reference Manual. https://developer.arm.com/documentation/ddi0403/ee/?lang=en
+3. Arm Limited. (2018, October 25). Arm® Instruction Set Version 1.0. https://documentation-service.arm.com/static/6245c734b059dc5ff9a8bdab
+4. Wu ChenXu (@kabeor). (2022, July 9). Unicorn-Engine API Documentation. https://github.com/kabeor/Unicorn-Engine-Documentation/blob/master/Unicorn-Engine%20Documentation.md
+5. Mathá, R. et al. (2021) Where to Encode: A Performance Analysis of x86 and Arm-based Amazon EC2 Instances. https://doi.org/10.48550/arxiv.2106.06242
