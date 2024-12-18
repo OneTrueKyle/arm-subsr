@@ -47,6 +47,10 @@ Programa kompiliuojama iš bylos `program.s`. Visoms kompiacijoms naudota komand
 
 Emuliacjios nustatymai gali būti keičiami modifikuojant `run.py` bylą. Paleidimui naudota `python3 run.py` komanda
 
+# Veikimo efektyvumas
+
+Programa naudoja minimalų atminties kiekį išsaugant visas registrų vertes. Programa gali būti optimizuojama atliekant papildomą patikrą: Žiūrint ar kopijuojamoje simbolių eilutėje nėra simbolių eilutės baigties simbolio, tačiau tai prideda papildomą tikrinimą kiekvienam baitui, o pagerintų efektyvumą tik kai pradinė simbolių eilutė yra ženkliai trumpesnė nei pareikalauta skaityti. Kitas optimizavimas galėtų būti naudojant LDM instrukciją: instrukcija leidžia užkrauti duomenis į kelis registrus viena instrukcija iš nuoseklios atminties. Ši optimizacija didina algoritmo sudėtingumą.
+
 
 #  Šaltiniai
 
