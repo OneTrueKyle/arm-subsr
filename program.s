@@ -1,20 +1,34 @@
-@ Program 2:  Hello World
-@ https://www.armasm.com/docs/getting-to-hello-world/hello-world/
-@
-@ A program that prints "Hello World!"
-
 .global _start
+_start:
+    @ r0 = src
+    @ r1 = s
+    @ r2 = n
+    @ r3 = dst
+    
+    @ r4 - skaitomo baito adresas
+    @ r5 - rašomo baito adresas
+    @ r6 - ciklo skaitiklis 
+    @ r7 - trumpalaikis laikiklis eilutės baigimo simboliui
 
-_start: 
-    mov  r7, #4          @ Setup service call 4 (write)
-    mov  r0, #1          @ param 1 - File descriptor 1 = stdout
-    ldr  r1, =hello      @ param 2 - address of string to print
-    mov  r2, #13         @ param 3 - length of hello world string
-    svc  0               @ ask linux to write to stdout
 
-    mov  r7, #1          @ Setup service call 1 (exit)
-    mov  r0, #0          @ param 1 - 0 = normal exit
-    svc  0               @ ask linux to terminate us
+    push {r4, r5, r6, r7, lr}   @ Išsaugomi naudojami registrai ir funkcijos grįžimo adreso registras
 
-.data
-hello:    .ascii    "Hello World!\n"
+    add r4, r0, r1      @ r4 = src + s
+    mov r5, r3          @ r5 = dst
+
+    mov r6, r2          @ r6 saugos kiek ciklų liko
+
+copy_loop:          @ Ciklo žymė
+
+    ldrb r7, [r4], #1   @ Įkraunamas baitas esantis adresu r4 į r7 ir pridedamas 1 prie r4
+    strb r7, [r5], #1   @ Baitas r7 išsaugomas adresu r3 ir prie r3 pridedamas 1
+
+    sub r6, r6, #1      @ Atimamas 1 iš kiek liko baitų kopijavimui
+
+    cmp r6, #0          @ Tikriname ar nukopijavome reikia baitų skaičių
+    bne copy_loop       @ Jeigu r5 == r2, ciklas kartojamas
+
+    mov r7, #0          @ Nustatyti r6 į simbolių eilutės baigimo simbolį
+    strb r7, [r5]       @ Įrašyti simbolių eilutės baigimo simbolį į simbolių eilutės pabaigą
+
+    pop {r4, r5, r6, r7, pc} @ Atkuriami registrai ir programos skaitiklio registras nustatomas į grįžimo adresą

@@ -22,6 +22,8 @@
 
 1. Wikipedia contributors. (2023, December 21). Substring. In Wikipedia, The Free Encyclopedia. Retrieved 18:33, December 18, 2024, from https://en.wikipedia.org/w/index.php?title=Substring&oldid=1190994581
 <!-- todo format -->
+https://developer.arm.com/documentation/ddi0403/ee/?lang=en
+https://documentation-service.arm.com/static/6245c734b059dc5ff9a8bdab
 GNU ARM
 Unicorn engine
 Unicorn engine python binding (docs)
